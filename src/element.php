@@ -7,7 +7,7 @@
 
     public function __construct($name,$basePrice,$caracteristics) {
         $this->name = $name;
-        $this->basePrice = $basePrice;
+        $this->basePrice = number_format($basePrice, 2);
         $this->caracteristics = $caracteristics;
     }
 
@@ -22,7 +22,7 @@
         return $this->caracteristics;
     }
     public function getPrice() {
-        return $this->basePrice + (($this->tax / 100)*  $this->basePrice);
+        return number_format($this->basePrice + (($this->tax / 100)*  $this->basePrice), 2);
     }
 
     //setters
@@ -39,4 +39,8 @@
     public function setTax($newTax) {
         $this->tax == $newTax;
     }
+
+    // public function __toString() {
+    //     return "Element: {$this->name} , {$this->basePrice} , {$this->caracteristics} , {$this->getPrice()}";
+    // }
 }

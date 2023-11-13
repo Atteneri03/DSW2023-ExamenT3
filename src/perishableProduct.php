@@ -6,7 +6,7 @@ class PerishableProduct extends Product {
 
     public function __construct($name,$basePrice,$caracteristics,$manufactureName,$weight,$volume,$expireDate) {
         parent::__construct($name,$basePrice,$caracteristics,$manufactureName,$weight,$volume);
-        $this->expireDate = $expireDate;
+        $this->expireDate = DateTime::createFromFormat('Y-m-d', $expireDate);
     }
 
     public function isExpired() {
@@ -17,7 +17,7 @@ class PerishableProduct extends Product {
 
     public function daysToExpire() {
         $today = new DateTime();
-        $diff = $hoy->diff($this->expireDate);
+        $diff = $today->diff($this->expireDate);
         return $diff->days;
     }
 
@@ -34,6 +34,12 @@ class PerishableProduct extends Product {
             $discount = 0;
         }
 
-        parent::__construct($this->getPrice() - $discount);
+        parent::setBasePrice($this->getPrice() - number_format($discount, 2));
     }
+
+    // public function __toString() {
+    //     $parentString = parent::__toString();
+
+    //     return "Producto Perecedero: $parentString ,  {$this->expireDate}";
+    // }
 }

@@ -23,4 +23,8 @@ class Product extends Element{
 
         return $shippingCost;
     }
+
+    // public function __toString() {
+    //     return "Producto: {$this->name} , {$this->basePrice} , {$this->caracteristics} , {$this->manufactureName} , {$this->weight} , {$this->volume}";
+    // }
 }
