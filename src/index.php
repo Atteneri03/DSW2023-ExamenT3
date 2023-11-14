@@ -60,22 +60,26 @@ $store->addElement($service8);
 $store->addElement($service9);
 
 
-echo "Muestro los elementos:<br>";
+function showFilteredElements($store, $filter) {
+    switch ($filter) {
+        case 'all':
+            return $store->showElements();
+        case 'products':
+            return $store->showProducts();
+        case 'services':
+            return $store->showServices();
+        case 'expiration':
+            return $store->showPerishableProducts();
+        case 'salable':
+            return $store->showSalableProducts();
+        default:
+            return false;
+    }
+       
+};
 
-$store->showElements();
+// Obtener el filtro de la URL
+$filter = isset($_GET['filter']) ? $_GET['filter'] : 'all';
 
-echo "<br>------------------------<br><br>";
-
-echo "Muestro los productos:<br>";
-$store->showProducts();
-
-echo "<br>------------------------<br><br>";
-
-echo "Muestro los productos perecederos:<br>";
-$store->showPerishableProducts();
-
-
-echo "<br>------------------------<br><br>";
-
-echo "Muestro los servicios:<br>";
-$store->showServices();
+// Llamar a la función para mostrar los elementos filtrados
+showFilteredElements($store, $filter);

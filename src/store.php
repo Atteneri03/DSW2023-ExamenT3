@@ -4,7 +4,7 @@ require_once("service.php");
 require_once("perishableProduct.php");
 
 class Store {
-    private $elements = array();
+    public $elements = array();
 
     public function addElement($newElement) {
         array_push($this->elements, $newElement);
