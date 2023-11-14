@@ -60,22 +60,22 @@ $store->addElement($service8);
 $store->addElement($service9);
 
 
-// echo "Muestro los elementos:<br>";
+echo "Muestro los elementos:<br>";
 
-// $store->showElements();
+$store->showElements();
 
-// echo "<br>------------------------<br><br>";
+echo "<br>------------------------<br><br>";
 
-// echo "Muestro los productos:<br>";
-// $store->showProducts();
+echo "Muestro los productos:<br>";
+$store->showProducts();
 
-// echo "<br>------------------------<br><br>";
+echo "<br>------------------------<br><br>";
 
-// echo "Muestro los productos perecederos:<br>";
-// $store->showPerishableProducts();
+echo "Muestro los productos perecederos:<br>";
+$store->showPerishableProducts();
 
 
-// echo "<br>------------------------<br><br>";
+echo "<br>------------------------<br><br>";
 
-// echo "Muestro los servicios:<br>";
-// $store->showServices();
+echo "Muestro los servicios:<br>";
+$store->showServices();

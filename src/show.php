@@ -14,7 +14,6 @@ function showFilteredElements($store, $filter) {
                 return property_exists($element, 'expirationDate');
             case 'sellable':
                 if (property_exists($element, 'expirationDate')) {
-                    // Assume the element is not sellable if it has an expiration date
                     return false;
                 }
                 return true;
@@ -23,7 +22,7 @@ function showFilteredElements($store, $filter) {
         }
     });
 
-    // Show the filtered elements
+    
     foreach ($filteredElements as $element) {
         echo "Name: {$element->name}<br>";
         echo "Features: {$element->features}<br>";
@@ -31,7 +30,7 @@ function showFilteredElements($store, $filter) {
     }
 }
 
-// Get the filter from the URL (e.g., http://yourDomain.com/showProducts.php?filter=products)
+// Filtro de la URL ( http://localhost/DSW2023-ExamenT3/src/show.php?filter=products)
 $filter = isset($_GET['filter']) ? $_GET['filter'] : 'all';
 
 // Call the function to show the filtered elements
